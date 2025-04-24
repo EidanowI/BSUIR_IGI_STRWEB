@@ -1,6 +1,6 @@
-# logic for task3 & task4 24
-# Stetsurin Elisey 353504
-# 23.03.2025
+# 12
+# kOVALCHUK FEODOR 353504
+
 
 from decorator import log_decorator
 
@@ -38,9 +38,9 @@ def split_text(text):
     return text.replace(',', ' ').split()
 
 @log_decorator
-def count_short_words(words, max_length=5):
+def count_words(words):
     """
-    Counts the number of words with length less than or equal to max_length.
+    Counts words count.
 
     Args:
         words (list): A list of words to analyze.
@@ -49,10 +49,11 @@ def count_short_words(words, max_length=5):
     Returns:
         int: The number of words in the list with length less than or equal to max_length.
     """
-    return sum(1 for word in words if len(word) <= max_length)
+
+    return len(words)
 
 @log_decorator
-def find_shortest_word_ending_with_w(words):
+def find_first_z_contein_word(words):
     """
     Finds the shortest word that ends with 'w' (case insensitive).
 
@@ -65,13 +66,19 @@ def find_shortest_word_ending_with_w(words):
     Returns:
         str or None: The shortest word ending with 'w', or None if no such word is found.
     """
-    ending_with_w = [word for word in words if word.lower().endswith('w')]
-    if not ending_with_w:
-        return None
-    return min(ending_with_w, key=len)
+
+    first_z_word = None
+    first_z_index = -1
+    for index, word in enumerate(words):
+        if 'z' in word:
+            first_z_word = word
+            first_z_index = index + 1
+            break
+
+    return first_z_word, first_z_index
 
 @log_decorator
-def sort_words_by_length(words):
+def without_a_start_words(words):
     """
     Sorts the words by their length in ascending order.
 
@@ -81,4 +88,7 @@ def sort_words_by_length(words):
     Returns:
         list: A new list containing the words sorted by their length.
     """
-    return sorted(words, key=len)
+    filtered_words = [word for word in words if not word.startswith('a')]
+    filtered_string = ' '.join(filtered_words)
+
+    return filtered_string

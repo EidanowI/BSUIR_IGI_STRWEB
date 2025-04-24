@@ -1,6 +1,7 @@
 from Task1 import run_task1
 from Task2 import run_task2
 from Task3 import run_task3
+from Task4 import run_task4
 
 def main():
     """
@@ -19,9 +20,11 @@ def main():
     """
     while True:
         print("\nМеню выбора заданий:")
+
         print("1. Задание 1: Вычисление arcsin(x)")
         print("2. Задание 2: Подсчет чисел больших 12")
         print("3. Задание 3: Анализ текста (двоичное число)")
+        print("4. Задание 4: Анализ текста")
         print("0. Выход")
 
         choice = input("Выберите задание (0-5): ").strip()
@@ -32,6 +35,8 @@ def main():
             run_task2()
         elif choice == '3':
             run_task3()
+        elif choice == '4':
+            run_task4()
       
         elif choice == '0':
             print("Выход из программы.")

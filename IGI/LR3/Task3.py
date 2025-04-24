@@ -1,7 +1,7 @@
-# main for task3
-# Task3 24
-# Stetsurin Elisey 353504
-# 23.03.2025
+# TASK3
+# 12
+# kOVALCHUK FEODOR 353504
+
 
 from text_processing import is_binary_value
     
