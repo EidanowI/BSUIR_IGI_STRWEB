@@ -40,7 +40,7 @@ def generate_random_list(size, min_val=-10.0, max_val=10.0):
     """
     return [random.uniform(min_val, max_val) for _ in range(size)]
 
-def find_product_of_negatives(numbers):
+def find_product_of_positive(numbers):
     """
     Calculates the product of all negative numbers in the list.
     
@@ -52,11 +52,11 @@ def find_product_of_negatives(numbers):
     """
     product = 1
     for num in numbers:
-        if num < 0:
+        if num >= 0:
             product *= num
     return product
 
-def find_sum_before_max_abs(numbers):
+def find_sum_before_min_abs(numbers):
     """
     Calculates the sum of all positive numbers before the element with the maximum absolute value.
     
@@ -70,11 +70,11 @@ def find_sum_before_max_abs(numbers):
     if not numbers:
         return 0
     
-    # Находим индекс элемента с максимальным модулем
-    max_abs_index = max(range(len(numbers)), key=lambda i: abs(numbers[i]))
+    # Находим индекс элемента с минималным модулем
+    min_abs_index = min(range(len(numbers)), key=lambda i: abs(numbers[i]))
     
     # Суммируем положительные элементы до этого индекса
-    sum_positive = sum(num for num in numbers[:max_abs_index] if num > 0)
+    sum_positive = sum(num for num in numbers[:min_abs_index])
     return sum_positive
 
 def print_list(numbers):
