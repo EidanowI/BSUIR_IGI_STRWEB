@@ -1,6 +1,7 @@
 # func for asin(x)
 # Task1 12
 # Kovalchuk Feodor 353504
+
 import math
 
 def asin_approx(x, eps, max_iter=500):

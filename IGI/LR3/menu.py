@@ -1,4 +1,5 @@
 from Task1 import run_task1
+from Task2 import run_task2
 
 def main():
     """
@@ -18,13 +19,15 @@ def main():
     while True:
         print("\nМеню выбора заданий:")
         print("1. Задание 1: Вычисление arcsin(x)")
-
+        print("2. Задание 2: Подсчет чисел больших 12")
         print("0. Выход")
 
         choice = input("Выберите задание (0-5): ").strip()
         
         if choice == '1':
             run_task1()
+        elif choice == '2':
+            run_task2()
       
         elif choice == '0':
             print("Выход из программы.")
