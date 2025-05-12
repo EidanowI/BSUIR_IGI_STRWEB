@@ -8,12 +8,13 @@ Development date:
 10.05.2025
 """
 
-from Tasks import ITask, Task1
+from Tasks.ITask import ITask
+from Tasks.Task1 import Task1
 
 class Menu(object):
     def __init__(self):
         self.tasks: dict[str, ITask] = {
-            '1': Task1(filepath='data/products'),
+            '1': Task1(filepath='data/Task1/'),
         }
 
     def show(self):
