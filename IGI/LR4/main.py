@@ -10,11 +10,13 @@ Development date:
 
 from Tasks.ITask import ITask
 from Tasks.Task1 import Task1
+from Tasks.Task2 import Task2
 
 class Menu(object):
     def __init__(self):
         self.tasks: dict[str, ITask] = {
             '1': Task1(filepath='data/Task1/'),
+            '2': Task2(filepath='data/Task2/'),
         }
 
     def show(self):
