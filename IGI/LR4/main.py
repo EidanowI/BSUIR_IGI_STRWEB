@@ -12,6 +12,7 @@ from Tasks.ITask import ITask
 from Tasks.Task1 import Task1
 from Tasks.Task2 import Task2
 from Tasks.Task3 import Task3
+from Tasks.Task4 import Task4
 
 class Menu(object):
     def __init__(self):
@@ -19,6 +20,7 @@ class Menu(object):
             '1': Task1(filepath='data/Task1/'),
             '2': Task2(filepath='data/Task2/'),
             '3': Task3(filepath='data/Task3/'),
+            '4': Task4(filepath='data/Task4/'),
         }
 
     def show(self):
