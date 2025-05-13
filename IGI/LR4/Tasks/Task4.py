@@ -95,11 +95,12 @@ class Triangle(GeometricFigure):
         Returns:
         float: The length of the side calculated using the Pythagorean theorem.
         """
-        return math.sqrt(self.height**2 + (self.base / 2)**2)
+        Triangle.side = math.sqrt(self.height**2 + (self.base / 2)**2)
+        return Triangle.side
 
     @side.setter
     def side(self, value):
-        self.side = value
+        Triangle.side = value
 
     def calculate_area(self):
         """

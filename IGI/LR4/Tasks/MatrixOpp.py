@@ -25,21 +25,22 @@ class MatrixBase:
         """String representation of the matrix."""
         return str(self.matrix)
     
+class MatrixRandomizerMixin:
+    """Mixin for random matrix generation."""
     def randomize(self, low=None, high=None):
         """Generate a random matrix."""
         low = low if low is not None else MatrixBase._default_low
         high = high if high is not None else MatrixBase._default_high
         return np.random.randint(low, high, size=(self.rows, self.cols))
-
     
-
-class MatrixOperations(MatrixBase):
+class MatrixOperations(MatrixBase, MatrixRandomizerMixin):
     """Class for matrix operations with NumPy."""
-    def __init__(self):
+    def __init__(self, rows, cols):
         """Initialize with dimensions and create a random matrix."""
+        super().__init__(rows, cols)
+        self.matrix = self.randomize()
 
-    @staticmethod
-    def insert_after_min(matrix):
+    def insert_after_min(self):
         """
         Inserts the first row of the matrix immediately after the row containing the minimum element.
 
@@ -49,14 +50,13 @@ class MatrixOperations(MatrixBase):
         Returns:
         np.ndarray: The modified matrix after insertion.
         """
-        min_index = np.argmin(matrix)
-        min_row, min_col = np.unravel_index(min_index, matrix.shape)
-        print("Минимальный элемент: ", matrix[min_row, min_col])
-        matrix = np.insert(matrix, min_row+1, matrix[0], axis = 0)
-        print("\nМатрица после вставки:\n", matrix)
+        min_index = np.argmin(self.matrix)
+        min_row, min_col = np.unravel_index(min_index, self.matrix.shape)
+        print("Минимальный элемент: ", self.matrix[min_row, min_col])
+        self.matrix = np.insert(self.matrix, min_row+1, self.matrix[0], axis = 0)
+        print("\nМатрица после вставки:\n", self.matrix)
 
-    @staticmethod
-    def find_median_buildin(matrix):
+    def find_median_buildin(self):
         """
         Calculates the median of the first row of the matrix using NumPy's built-in function.
 
@@ -66,10 +66,9 @@ class MatrixOperations(MatrixBase):
         Returns:
         float: The median of the first row.
         """
-        print("Медиана 1-й строки матрицы А (встроенная ф.): ", np.median(matrix[0]))
+        print("Медиана 1-й строки матрицы А (встроенная ф.): ", np.median(self.matrix[0]))
 
-    @staticmethod
-    def find_median_prog(matrix):
+    def find_median_prog(self):
         """
         Calculates the median of the first row of the matrix using a manual method.
 
@@ -79,7 +78,7 @@ class MatrixOperations(MatrixBase):
         Returns:
         float: The median of the first row.
         """
-        sorted_row = np.sort(matrix[0])
+        sorted_row = np.sort(self.matrix[0])
         mid = len(sorted_row) // 2
 
         if mid % 2 == 0:
@@ -87,3 +86,4 @@ class MatrixOperations(MatrixBase):
         else: median = sorted_row[mid]
 
         print("Медиана 1-й строки (программирование формулы): ", median)
+    

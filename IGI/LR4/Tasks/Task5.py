@@ -12,9 +12,9 @@ from .ITask import ITask
 
 from Utils.input import input_float, input_int, input_positive_int
 
-import numpy
+import numpy as np
 
-from .MatrixOpp import MatrixOperations, MatrixBase
+from .MatrixOpp import MatrixOperations
 from .MatrixStats import Statistics
 
 class Task5(ITask):
@@ -45,33 +45,49 @@ class Task5(ITask):
             if cols < 2:
                 raise ValueError("Должно быть минимум две колонки для кореляции.")
 
-            matrix = MatrixBase(rows,cols)
-            matrix = matrix.randomize(5, 10)
+            matrix_ops = MatrixOperations(rows, cols)
 
             print("Рандомная матрица:")
-            print(matrix)
+            print(matrix_ops)
 
-            MatrixOperations.insert_after_min(matrix)
+            matrix_ops.insert_after_min()
             print("Матрица после подстановки:")
-            print(matrix)
+            print(matrix_ops)
 
             print("Медиана встроенной функцией:")
-            MatrixOperations.find_median_buildin(matrix)
+            matrix_ops.find_median_buildin()
 
             print("Медиана програмированной функцией:")
-            MatrixOperations.find_median_prog(matrix)
+            matrix_ops.find_median_prog()
 
             print("\Статистические результаты:")
-            print(f"Mean: {Statistics.mean(matrix):.2f}")
-            print(f"Median: {Statistics.median(matrix):.2f}")
-            print(f"Variance: {Statistics.variance(matrix):.2f}")
-            print(f"Standard Deviation: {Statistics.std_dev(matrix):.2f}")
-            print(f"Correlation between first and last columns: {Statistics.correlation(matrix, 0, -1)}")
+            print(f"Mean: {Statistics.mean(matrix_ops._matrix):.2f}")
+            print(f"Median: {Statistics.median(matrix_ops._matrix):.2f}")
+            print(f"Variance: {Statistics.variance(matrix_ops._matrix):.2f}")
+            print(f"Standard Deviation: {Statistics.std_dev(matrix_ops._matrix):.2f}")
+            print(f"Correlation between first and last columns: {Statistics.correlation(matrix_ops._matrix, 0, -1)}")
 
         except ValueError as e:
             print(f"Error: {e}")
         except Exception as e:
             print(f"Unexpected error: {e}")
+
+    def npy_test(self):
+        array_1d = np.array([1, 2, 3, 4])
+        array_2d = np.array([[1, 2], [3, 4]])
+
+        zeros_array = np.zeros((2, 3))
+        ones_array = np.ones((3, 2))
+        range_array = np.arange(0, 10, 2) # [0, 2, 4, 6, 8]
+        linspace_array = np.linspace(0, 1, 5)  # [0. , 0.25, 0.5, 0.75, 1. ]
+
+        array = np.array([10, 20, 30, 40])
+        print(array[1])  # 20 - indexing
+        print(array[1:3])  # [20, 30] - srez
+
+        array_2d = np.array([[1, 2], [3, 4]])
+        print(array_2d[0, 1])  # 2
+        print(array_2d[:, 1])  # [2, 4]
 
 
     @staticmethod
