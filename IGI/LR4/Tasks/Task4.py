@@ -144,12 +144,31 @@ class Triangle(GeometricFigure):
         plot.savefig(file_name, dpi=300)
 
 class Task4(ITask):
-    
-    def __init__(self, filepath: str):
+    """
+    A class to handle the task of creating and managing a triangle.
 
+    Attributes:
+    - _filepath (str): The path to save the triangle image.
+
+    Methods:
+    - __init__(filepath: str): Initializes the Task4 instance with the file path.
+    - run(): Prompts user for triangle dimensions and color, then creates and displays the triangle.
+    """
+    def __init__(self, filepath: str):
+        """
+        Initializes the Task4 instance.
+
+        Parameters:
+        - filepath (str): The path to save the triangle image.
+        """
         self._filepath = filepath
     def run(self):
+        """
+        Executes the task of creating a triangle.
 
+        Prompts the user for the base length, height, and color of the triangle,
+        creates a Triangle instance, and displays its information and drawing.
+        """
         print("Для измерений треугольника введите:")
         print("Длина основания: ")
         base_len = input_positive_int()
