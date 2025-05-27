@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Добро пожаловать в наш магазин,  <b> {{user.username}} </b> </h1>
+    <a href="/about/"><button>О нас</button></a>
+    <a href="/contacts/"><button>Контакты</button></a>
+    <a href="/coupons/"><button>Купоны</button></a>
+    <a href="/faq/"><button>FAQ</button></a>
+    <a href="/news/"><button>Новости</button></a>
+    <a href="/policy/"><button>Политика</button></a>
+    <a href="/review_list/"><button>Отзывы</button></a>
+    <a href="/vacancy/"><button>Вакансии</button></a>
+    <a href="/cart/"><button>Корзина</button></a>
+    <a href="/cataloge/"><button>Каталог</button></a>
+    <a href="/login/"><button>Выйти</button></a>
+    <a href="/settings/"><button>Настройки</button></a>
+    <a href="/crud/"><button>Crud</button></a>
+    <h1>Только для админа:</h1>
+    <a href="/view_orders/"><button> Заказы</button></a>
+    <a href="/popular_products/"><button>Статистика</button></a>
+
+    <main class="conteiner my-4">
+        {% block content %}
+
+        {% endblock %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <a href="/">Назад</a>
+    <h1>Вакансии</h1>
+    <p>Просмотрите наши текущие открытые вакансии</p>.</p>
+    <ul>{%for vacancy in vacancies%}
+        <li>
+            <h1>{{vacancy.title}}</h1>
+            <p>{{vacancy.description}}</p>
+        </li>
+         
+        {% endfor %}</ul>
+
+{% endblock content %}

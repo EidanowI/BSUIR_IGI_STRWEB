@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <a href="/">Назад</a>
+
+    <h1>О нас</h1>
+    <p>Добро пожаловать на наш сайт с лучшим автосолоном.</p>
+    <p>Проект подготовил Ковальчук Фёдор</p>
+
+    <div><h1>Интересный факт о котах:</h1> </div>
+    <div> <h3>{{cat_fact}}</h3></div>
+    <div><h1>Случайная шутка:</h1> </div>
+    <div> <h3>{{joke_setup}}  {{joke_punchline}}</h3></div>
+
+{% endblock content %}
