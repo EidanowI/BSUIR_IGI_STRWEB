@@ -5,24 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
 </head>
-<body>
-    <a href="/">Домой</a>
-    <h1>Ваша корзина</h1>
-    <ul>
-        {% for cart_product in cartproduct_set %}
-            <li>
-                <p>{{ cart_product.product.name }}</p>
-                <p>{{ cart_product.product.price }}</p>
-                <p>Quantity: {{ cart_product.quantity }}</p>
-            </li>
-        {% endfor %}
-    </ul>
-    <p>Итого: {{ total_price }} BYN</p>
-    <form action="{% url 'complete_order' %}" method="post">
-        {% csrf_token %}
-        <label for="address">Адрес доставки:</label>
-        <input type="text" id="address" name="address" required>
-        <button type="submit">Совершить сделку</button>
-    </form>
+<body bgcolor="#f0f0f0">
+    <center>
+        <table width="80%" cellpadding="10">
+            <tr>
+                <td>
+                    <a href="/"><button><font face="Arial">🏠 На главную</font></button></a>
+                </td>
+            </tr>
+        </table>
+
+        <table width="80%" cellpadding="10" bgcolor="white">
+            <tr>
+                <td align="center">
+                    <h1><font face="Arial">🛒 Ваша корзина</font></h1>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <table width="100%" cellpadding="10" cellspacing="1" bgcolor="#e0e0e0">
+                        <tr bgcolor="white">
+                            <th><font face="Arial">Товар</font></th>
+                            <th><font face="Arial">Цена</font></th>
+                            <th><font face="Arial">Количество</font></th>
+                        </tr>
+                        {% for cart_product in cartproduct_set %}
+                        <tr bgcolor="white">
+                            <td align="center"><font face="Arial">{{ cart_product.product.name }}</font></td>
+                            <td align="center"><font face="Arial">{{ cart_product.product.price }} BYN</font></td>
+                            <td align="center"><font face="Arial">{{ cart_product.quantity }}</font></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right">
+                    <h3><font face="Arial">Итого: <b>{{ total_price }} BYN</b></font></h3>
+                </td>
+            </tr>
+        </table>
+
+        <table width="80%" cellpadding="20" bgcolor="white">
+            <tr>
+                <td>
+                    <form action="{% url 'complete_order' %}" method="post">
+                        {% csrf_token %}
+                        <table width="100%" cellpadding="5">
+                            <tr>
+                                <td><font face="Arial"><label for="address">📍 Адрес доставки:</label></font></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" id="address" name="address" required size="50"></td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <button type="submit"><font face="Arial">✅ Оформить заказ</font></button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </center>
 </body>
 </html>

@@ -4,28 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-
 </head>
-<body>
-    <div class="login-container">
-        <h2>Login</h2>
-        <style>
-            h5{
-                color:red
-            }
-        </style>
-        {%for message in messages%}
-        <h5>{{message}}</h5>
-        {%endfor%}
-        <form action="" method="POST">
-            {%csrf_token%}
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
-        <div class="register-link">
-            <p>Don't have an account or wanna create new one? <a href="/register">Register</a></p>
-        </div>
-    </div>
+<body bgcolor="#f0f0f0">
+    <center>
+        <table width="400" cellpadding="20" bgcolor="white">
+            <tr>
+                <td align="center">
+                    <h2><font face="Arial">Вход в систему</font></h2>
+                    
+                    {%for message in messages%}
+                    <font color="red" face="Arial"><b>{{message}}</b></font><br><br>
+                    {%endfor%}
+                    
+                    <form action="" method="POST">
+                        {%csrf_token%}
+                        <table cellpadding="5">
+                            <tr>
+                                <td><input type="text" name="username" placeholder="Имя пользователя" required size="30"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="password" name="password" placeholder="Пароль" required size="30"></td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <button type="submit"><font face="Arial">Войти</font></button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                    
+                    <br>
+                    <font face="Arial">
+                        Нет аккаунта или хотите создать новый? 
+                        <a href="/register"><b>Регистрация</b></a>
+                    </font>
+                </td>
+            </tr>
+        </table>
+    </center>
 </body>
 </html>
