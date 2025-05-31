@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body bgcolor="#f0f0f0">
+    <center>
+        <header>
+            <table width="80%" cellpadding="10">
+                <tr>
+                    <td align="center">
+                        <h1><font face="Arial">Добро пожаловать в наш магазин, <b>{{user.username}}</b></font></h1>
+                    </td>
+                </tr>
+            </table>
+        </header>
+
+        <nav>
+            <table width="80%" cellpadding="5" cellspacing="5">
+                <tr>
+                    <td align="center"><a href="/about/"><button><font face="Arial">О нас</font></button></a></td>
+                    <td align="center"><a href="/contacts/"><button><font face="Arial">Контакты</font></button></a></td>
+                    <td align="center"><a href="/coupons/"><button><font face="Arial">Купоны</font></button></a></td>
+                    <td align="center"><a href="/faq/"><button><font face="Arial">FAQ</font></button></a></td>
+                </tr>
+                <tr>
+                    <td align="center"><a href="/news/"><button><font face="Arial">Новости</font></button></a></td>
+                    <td align="center"><a href="/policy/"><button><font face="Arial">Политика</font></button></a></td>
+                    <td align="center"><a href="/review_list/"><button><font face="Arial">Отзывы</font></button></a></td>
+                    <td align="center"><a href="/vacancy/"><button><font face="Arial">Вакансии</font></button></a></td>
+                </tr>
+            </table>
+
+            <table width="80%" cellpadding="5" cellspacing="5">
+                <tr>
+                    <td align="center"><a href="/cart/"><button><font face="Arial" size="+1">🛒 Корзина</font></button></a></td>
+                    <td align="center"><a href="/cataloge/"><button><font face="Arial" size="+1">📚 Каталог</font></button></a></td>
+                    <td align="center"><a href="/login/"><button><font face="Arial" size="+1">🚪 Выйти</font></button></a></td>
+                    <td align="center"><a href="/settings/"><button><font face="Arial" size="+1">⚙️ Настройки</font></button></a></td>
+                    <td align="center"><a href="/crud/"><button><font face="Arial" size="+1">🔧 Crud</font></button></a></td>
+                </tr>
+            </table>
+        </nav>
+
+        <hr width="80%" noshade>
+
+        <section>
+            <table width="80%" cellpadding="5">
+                <tr>
+                    <td>
+                        <h2><font face="Arial">Только для админа:</font></h2>
+                        <p>
+                            <a href="/view_orders/"><button><font face="Arial">📋 Заказы</font></button></a>
+                            <a href="/popular_products/"><button><font face="Arial">📊 Статистика</font></button></a>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <main>
+            <table width="80%" cellpadding="10">
+                <tr>
+                    <td>
+                        {% block content %}
+                        {% endblock %}
+                    </td>
+                </tr>
+            </table>
+        </main>
+    </center>
+</body>
+</html>

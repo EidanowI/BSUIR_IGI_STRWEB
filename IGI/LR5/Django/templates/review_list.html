@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block content %}
+ <a href="/">Домой</a>
+    <h1>Отзывы</h1>
+    <p>Читай что наши пользователи думают о нас.</p>
+    <ul>
+        {% for review in reviews %}
+        <li>{{ review.text }} - {{ review.rating }}/10 by {{ review.user.username }} on {{ review.created_at }}</li>
+        {% endfor %}
+    </ul>
+    <a href="create_review/">Create a Review</a>
+{% endblock content %}
